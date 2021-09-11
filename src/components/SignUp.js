@@ -5,3 +5,5 @@ function SignUp() {
         </div>
     )
 }
+
+export default SignUp
