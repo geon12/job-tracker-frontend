@@ -1,4 +1,5 @@
 import { useState,useEffect } from "react";
+import Home from "./components/Home";
 import Profile from "./components/Profile";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
 
   return (
     <div>
+      <Home />
       {user ? <Profile user={user}/> : <div>Page is Loading</div>}
     </div>
   );
