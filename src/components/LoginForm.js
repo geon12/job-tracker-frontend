@@ -1,8 +1,8 @@
 function LoginForm() {
     return (
-        <div>
+        <form>
 
-        </div>
+        </form>
     )
 }
 
