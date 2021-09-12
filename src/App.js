@@ -8,7 +8,7 @@ import SignUp from "./components/SignUp";
 function App() {
   const [user, setUser] = useState(null)
   useEffect( () => {
-    fetch(`${process.env.REACT_APP_API_URL}/profile`)
+    fetch(`${process.env.REACT_APP_API_URL}/profile`,{credentials:'include'})
       .then((resp) => {
         if (resp.ok) {
           resp.json().then(setUser)
@@ -31,7 +31,7 @@ function App() {
       <Login setUser={setUser}/>
       <button onClick={test}>Test</button>
       <SignUp setUser={setUser}/>
-      <LogOut />
+      <LogOut setUser={setUser}/>
     </div>
   );
 }

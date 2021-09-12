@@ -29,6 +29,7 @@ function SignUpForm({setUser}) {
         headers: {
             "Content-Type": "application/json",
         },
+        credentials:'include',
         body: JSON.stringify(formData),
         })
         .then((resp) => resp.json())

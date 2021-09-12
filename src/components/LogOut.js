@@ -1,8 +1,12 @@
-function LogOut() {
+function LogOut({setUser}) {
     function handleClick() {
-        fetch(`${process.env.REACT_APP_API_URL}/logout`,{method:'DELETE'})
-            .then(resp => resp.json())
-            .then(console.log)
+        fetch(`${process.env.REACT_APP_API_URL}/logout`,{method:'DELETE',credentials:'include'})
+            .then((resp) => {
+                if (resp.ok) {
+                    setUser(null)
+                }
+            })
+            
     }
     return (
         <div>

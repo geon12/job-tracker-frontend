@@ -11,6 +11,7 @@ function LoginForm({setUser}) {
             headers: {
               "Content-Type": "application/json",
             },
+            credentials:'include',
             body: JSON.stringify({ username, password })
         }
         fetch(`${process.env.REACT_APP_API_URL}/login`,configObj)
