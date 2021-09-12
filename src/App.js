@@ -1,6 +1,7 @@
 import { useState,useEffect } from "react";
 import Home from "./components/Home";
 import Login from "./components/Login";
+import LogOut from "./components/LogOut";
 import Profile from "./components/Profile";
 import SignUp from "./components/SignUp";
 
@@ -30,6 +31,7 @@ function App() {
       <Login setUser={setUser}/>
       <button onClick={test}>Test</button>
       <SignUp setUser={setUser}/>
+      <LogOut />
     </div>
   );
 }
