@@ -3,6 +3,7 @@ function LogOut({setUser}) {
         fetch(`${process.env.REACT_APP_API_URL}/logout`,{method:'DELETE',credentials:'include'})
             .then((resp) => {
                 if (resp.ok) {
+                    console.log("deleted")
                     setUser(null)
                 }
             })

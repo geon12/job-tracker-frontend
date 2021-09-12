@@ -4,6 +4,7 @@ import Login from "./components/Login";
 import LogOut from "./components/LogOut";
 import Profile from "./components/Profile";
 import SignUp from "./components/SignUp";
+import JobAppsContainer from "./components/JobAppsContainer";
 
 function App() {
   const [user, setUser] = useState(null)
@@ -16,21 +17,13 @@ function App() {
       })
   },[])
 
-  function test() {
-    fetch(`${process.env.REACT_APP_API_URL}/profile`)
-      .then((resp) => {
-        if (resp.ok) {
-          resp.json().then(console.log)
-        }
-      })
-  }
   return (
     <div>
       <Home />
       {user ? <Profile user={user}/> : <div>Page is Loading</div>}
       <Login setUser={setUser}/>
-      <button onClick={test}>Test</button>
       <SignUp setUser={setUser}/>
+      {user ? <JobAppsContainer /> : <div>Page is Loading</div>}
       <LogOut setUser={setUser}/>
     </div>
   );
