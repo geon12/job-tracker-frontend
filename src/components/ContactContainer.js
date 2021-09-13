@@ -6,7 +6,7 @@ function ContactContainer({app}) {
     }
     return (
         <div>
-             {app ? populateCards() : <di>Page is Loading</di>}
+             {app ? populateCards() : <div>Page is Loading</div>}
         </div>
     )
 }
