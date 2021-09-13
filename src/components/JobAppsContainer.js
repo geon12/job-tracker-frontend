@@ -1,5 +1,5 @@
-import { useEffect,useState } from "react"
-import JobAppCard from "./JobAppCard"
+// import { useEffect,useState } from "react"
+// import JobAppCard from "./JobAppCard"
 
 function JobAppsContainer() {
     // const [jobApps, setJobApps] = useState(null)
