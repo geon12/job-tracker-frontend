@@ -7,7 +7,7 @@ function NavBar({user, setUser}) {
           <li>
             <Link to="/">Home</Link>
           </li>
-          {user ? <li><Link to="/login"> <button>Login</button></Link></li> :
+          {user ?  
             <>
                 <li>
                     <Link to="/profile">Profile</Link>
@@ -18,7 +18,12 @@ function NavBar({user, setUser}) {
                 <li>
                     <LogOut setUser={setUser}/>
                 </li>
-            </>
+            </> :
+            <li>
+                <Link to="/login"> 
+                    <button>Login</button>
+                </Link>
+            </li>
             }
         </ul>
     )
