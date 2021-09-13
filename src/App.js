@@ -8,14 +8,14 @@ import JobAppsContainer from "./components/JobAppsContainer";
 
 function App() {
   const [user, setUser] = useState(null)
-  const [jobApps,setJobApps] = useState(null)
+  
   useEffect( () => {
     fetch(`${process.env.REACT_APP_API_URL}/profile`,{credentials:'include'})
       .then((resp) => {
         if (resp.ok) {
           resp.json().then((resp)=>{
             setUser(resp)
-            setJobApps(resp.job_applicatins)
+            
           })
         }
       })
@@ -27,7 +27,7 @@ function App() {
       {user ? <Profile user={user}/> : <div>Page is Loading</div>}
       <Login setUser={setUser}/>
       <SignUp setUser={setUser}/>
-      {user ? <JobAppsContainer jobApps={jobApps}/> : <div>Page is Loading</div>}
+      {user ? <JobAppsContainer /> : <div>Page is Loading</div>}
       <LogOut setUser={setUser}/>
     </div>
   );
