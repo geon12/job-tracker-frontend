@@ -17,7 +17,7 @@ function JobAppsContainer() {
     },[])
     return (
         <div>
-            {jobApps ? jobApps.map((app) => <JobAppCard app={app}/>) : <div>Page is Loading</div>}
+            {jobApps ? jobApps.map((app) => <JobAppCard key={app.id} app={app}/>) : <div>Page is Loading</div>}
         </div>
     )
 }

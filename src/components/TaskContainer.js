@@ -3,7 +3,7 @@ import TaskCard from "./TaskCard"
 function TaskContainer({app}) {
 
     function populateCards() {
-        return app.tasks.map((task) => <TaskCard task={task}/>)
+        return app.tasks.map((task) => <TaskCard key={task.id} task={task}/>)
     }
     return (
         <div>
