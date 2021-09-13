@@ -10,7 +10,7 @@ function JobAppsContainer() {
         .then((resp) => {
             if (resp.ok) {
             resp.json().then((resp) => {
-                    setJobApps(resp)
+                    //setJobApps(resp)
                     console.log(resp)
                 })
             }
