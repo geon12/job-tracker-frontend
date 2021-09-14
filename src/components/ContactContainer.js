@@ -12,6 +12,7 @@ function ContactContainer({jobApps}) {
     return (
         <div>
             <Link to="/job_applications"><button>Back to Applications</button></Link>
+            <button>Add a Contact</button>
              {app ? populateCards() : <div>Page is Loading</div>}
         </div>
     )
