@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom"
+
 function JobAppCard({app}) {
-   
+    
     return (
         <div>
             <h1>job: {app.job.role}</h1>
@@ -8,6 +10,11 @@ function JobAppCard({app}) {
             <h2>application method-{app.application_process}</h2>
             <h3>rejected-{app.rejected ? "No" : "yes"}</h3>
             <h3>status-{app.status}</h3>
+            <Link to={`/job_applications/${app.id}/tasks`}><button>Tasks</button></Link>
+            <Link to={`/job_applications/${app.id}/contacts`}><button>Contacts</button></Link>
+            <button>Delete</button>
+            <button>Edit</button>
+            
         </div>
     )
 }

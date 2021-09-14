@@ -4,6 +4,8 @@ import Login from "./components/Login";
 import Profile from "./components/Profile";
 import SignUp from "./components/SignUp";
 import JobAppsContainer from "./components/JobAppsContainer";
+import TaskContainer from "./components/TaskContainer";
+import ContactContainer from "./components/ContactContainer";
 
 import {
   BrowserRouter as Router,
@@ -15,6 +17,7 @@ import NavBar from "./components/NavBar";
 
 function App() {
   const [user, setUser] = useState(null)
+  const [jobApps, setJobApps] = useState(null)
   
   useEffect( () => {
     fetch(`${process.env.REACT_APP_API_URL}/profile`,{credentials:'include'})
@@ -28,6 +31,18 @@ function App() {
       })
   },[])
 
+  useEffect( () => {
+    fetch(`${process.env.REACT_APP_API_URL}/job_applications`,{credentials:'include'})
+    .then((resp) => {
+        if (resp.ok) {
+        resp.json().then((resp) => {
+                //console.log(resp)
+                setJobApps(resp)
+            })
+        }
+    })
+},[])
+
   return (
     <Router>
       <NavBar user={user} setUser={setUser}/>
@@ -37,7 +52,7 @@ function App() {
             <Home />
           </Route>
           <Route exact path="/profile">
-            {user ? <Profile user={user}/> : <div>Page is Loading</div>}
+            {user ? <Profile user={user}/> : <div>Profile is Loading</div>}
           </Route>
           <Route exact path="/login">
             <Login setUser={setUser}/>
@@ -46,9 +61,14 @@ function App() {
             <SignUp setUser={setUser}/>
           </Route>
           <Route exact path="/job_applications">
-            {user ? <JobAppsContainer /> : <div>Page is Loading</div>}
+            {user && jobApps ? <JobAppsContainer jobApps={jobApps} setJobApps={setJobApps}/> : <div>Applications are Loading</div>}
           </Route>
-          
+          <Route exact path="/job_applications/:app_id/tasks">
+            {user && jobApps ? <TaskContainer jobApps={jobApps}/> : <div>Task is Loading</div>}
+          </Route>
+          <Route exact path="/job_applications/:app_id/contacts">
+            {user && jobApps ? <ContactContainer jobApps={jobApps}/> : <div>Contact is Loading</div>}
+          </Route>
         
       </Switch>
     </Router>
