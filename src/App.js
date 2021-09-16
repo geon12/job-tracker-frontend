@@ -52,7 +52,7 @@ function App() {
             <Home />
           </Route>
           <Route exact path="/profile">
-            {user ? <Profile user={user}/> : <div>Profile is Loading</div>}
+            {user ? <Profile user={user} setUser={setUser}/> : <div>Profile is Loading</div>}
           </Route>
           <Route exact path="/login">
             <Login setUser={setUser}/>

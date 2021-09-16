@@ -1,10 +1,13 @@
-function ProfileEditForm({user,setUser}) {
+import {useState} from "react"
+
+function ProfileEditForm({user,setUser,setShowEdit}) {
 
     const initialState = {
-        name: user.name,
-        location: user.location,
-        job: user.job,
-        email: user.email
+        id: user.id,
+        name: user.name ? user.name : "",
+        location: user.location ? user.location : "",
+        job_title: user.job_title ? user.job_title : "",
+        email: user.email ? user.email : ""
     }
     const [formData, setFormData] = useState(initialState)
 
@@ -25,14 +28,16 @@ function ProfileEditForm({user,setUser}) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data)
+            credentials:'include',
+            body: JSON.stringify(formData)
         }
         
-        fetch(`${process.env.REACT_APP_API_URL}/profile}`, configObj)
+        fetch(`${process.env.REACT_APP_API_URL}/profile`, configObj)
             .then(resp => resp.json())
             .then( (resp) => {
                 
                 setUser(resp)
+                setShowEdit(prevState => !prevState)
             })
             .catch(console.error)
             
@@ -43,29 +48,29 @@ function ProfileEditForm({user,setUser}) {
             <input 
                 type="text" 
                 name="name" 
-                placeholder={`${user.name}`} 
+                placeholder="Name"
                 value={formData.name} 
                 onChange={handleChange}
             />
             <input 
                 type="text" 
                 name="location" 
-                placeholder={`${user.location}`} 
+                placeholder="Location"
                 value={formData.location} 
                 onChange={handleChange}
             />
             <input 
                 type="text" 
-                name="name" 
-                placeholder={`${user.email}`} 
+                name="email" 
+                placeholder="Email" 
                 value={formData.email} 
                 onChange={handleChange}
             />
             <input 
                 type="text" 
-                name="job" 
-                placeholder={`${user.job}`} 
-                value={formData.job} 
+                name="job_title" 
+                placeholder="Job Title" 
+                value={formData.job_title} 
                 onChange={handleChange}
             />
             <button type="submit">Save Changes</button>
