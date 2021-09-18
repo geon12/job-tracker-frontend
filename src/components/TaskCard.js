@@ -9,6 +9,12 @@ function TaskCard({task,setJobApps,jobApps,app}) {
         return jobApps.map((jobApp) => jobApp.id === updatedApp.id ? updatedApp : jobApp)
     }
 
+    function removeTask(deletedTask) {
+        const updatedTasks= app.tasks.filter((task) => task.id !== deletedTask )
+        const updatedApp = {...app,tasks: updatedTasks}
+        return jobApps.map((jobApp) => jobApp.id === updatedApp.id ? updatedApp : jobApp)
+    }
+
     function handleShowClick() {
         setShowEdit(prevState => !prevState)
     }
@@ -31,6 +37,13 @@ function TaskCard({task,setJobApps,jobApps,app}) {
             })
             .catch(console.error)
     }
+    function handleDelete() {
+        fetch(`${process.env.REACT_APP_API_URL}/tasks/${task.id}`, {method: 'DELETE',credentials:'include'})
+            .then( () => {
+                setJobApps(removeTask(task.id)) 
+            })
+            .catch(console.error)
+    }
     return (
         <div>   { 
                     showEdit ?
@@ -42,7 +55,7 @@ function TaskCard({task,setJobApps,jobApps,app}) {
                         <h2>completed-{task.completed ? "yes" : "no"}</h2>
                     </>
                 }   
-                <button>Delete</button>
+                <button onClick={handleDelete}>Delete</button>
                 <button onClick={handleShowClick}>{showEdit ? "Close" : "Edit"}</button>
                 
         </div>
