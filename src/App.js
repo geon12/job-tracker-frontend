@@ -64,7 +64,7 @@ function App() {
             {user && jobApps ? <JobAppsContainer jobApps={jobApps} setJobApps={setJobApps}/> : <div>Applications are Loading</div>}
           </Route>
           <Route exact path="/job_applications/:appId/tasks">
-            {user && jobApps ? <TaskContainer jobApps={jobApps}/> : <div>Task is Loading</div>}
+            {user && jobApps ? <TaskContainer jobApps={jobApps} setJobApps={setJobApps}/> : <div>Task is Loading</div>}
           </Route>
           <Route exact path="/job_applications/:appId/contacts">
             {user && jobApps ? <ContactContainer jobApps={jobApps} setJobApps={setJobApps}/> : <div>Contact is Loading</div>}
