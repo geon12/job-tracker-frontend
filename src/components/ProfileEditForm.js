@@ -32,7 +32,7 @@ function ProfileEditForm({user,setUser,setShowEdit}) {
             body: JSON.stringify(formData)
         }
         
-        fetch(`${process.env.REACT_APP_API_URL}/profile`, configObj)
+        fetch(`${process.env.REACT_APP_API_URL}/profile/`, configObj)
             .then(resp => resp.json())
             .then( (resp) => {
                 

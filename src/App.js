@@ -63,11 +63,11 @@ function App() {
           <Route exact path="/job_applications">
             {user && jobApps ? <JobAppsContainer jobApps={jobApps} setJobApps={setJobApps}/> : <div>Applications are Loading</div>}
           </Route>
-          <Route exact path="/job_applications/:app_id/tasks">
+          <Route exact path="/job_applications/:appId/tasks">
             {user && jobApps ? <TaskContainer jobApps={jobApps}/> : <div>Task is Loading</div>}
           </Route>
-          <Route exact path="/job_applications/:app_id/contacts">
-            {user && jobApps ? <ContactContainer jobApps={jobApps}/> : <div>Contact is Loading</div>}
+          <Route exact path="/job_applications/:appId/contacts">
+            {user && jobApps ? <ContactContainer jobApps={jobApps} setJobApps={setJobApps}/> : <div>Contact is Loading</div>}
           </Route>
         
       </Switch>

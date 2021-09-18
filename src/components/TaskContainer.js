@@ -4,8 +4,8 @@ import TaskCard from "./TaskCard"
 
 function TaskContainer({jobApps}) {
     
-    let { app_id } = useParams();
-    const app = jobApps.find((job_app) => job_app.id.toString() === app_id)
+    let { appId } = useParams();
+    const app = jobApps.find((jobApp) => jobApp.id.toString() === appId)
 
     function populateCards() {
         return app.tasks.map((task) => <TaskCard key={task.id} task={task}/>)
