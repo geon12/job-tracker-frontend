@@ -1,14 +1,15 @@
 import {useState} from "react"
 
-function ContactForm({contact,setShowForm,fetch}) {
-    const initialState = {
+function ContactForm({contact,setShowForm,fetch,appId}) {
+    const initialState = contact ? {
         name: contact.name ? contact.name : "",
         email: contact.email ? contact.email : "",
         role: contact.role ? contact.role : "",
         phone_number: contact.phone_number ? contact.phone_number : "",
         description: contact.description ? contact.description : ""
-    }
-    const [formData, setFormData] = useState(contact ? initialState : null)
+    } : {name: "" , email: "", role: "", phone_number: "", description: "",job_application_id: appId}
+
+    const [formData, setFormData] = useState(initialState)
 
     function handleChange(event) {
         const name = event.target.name

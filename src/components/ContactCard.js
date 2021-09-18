@@ -3,15 +3,31 @@ import ContactForm from "./ContactForm"
 
 function ContactCard({contact,setJobApps,jobApps,app}) {
     const [showEdit,setShowEdit] = useState(false)
-    function handleClick() {
+    function handleShowClick() {
         setShowEdit(prevState => !prevState)
     }
+
+    function removeContact(deletedContact) {
+        const updatedContacts= app.contacts.filter((contact) => contact.id !== deletedContact )
+        const updatedApp = {...app,contacts:updatedContacts}
+        return jobApps.map((jobApp) => jobApp.id === updatedApp.id ? updatedApp : jobApp)
+    }
+    
 
     function updateContacts(updatedContact) {
         const updatedContacts= app.contacts.map((contact) => contact.id === updatedContact.id ? updatedContact : contact )
         const updatedApp = {...app,contacts:updatedContacts}
         return jobApps.map((jobApp) => jobApp.id === updatedApp.id ? updatedApp : jobApp)
     }
+
+    function handleDelete() {
+        fetch(`${process.env.REACT_APP_API_URL}/contacts/${contact.id}`, {method: 'DELETE',credentials:'include'})
+            .then( () => {
+                setJobApps(removeContact(contact.id)) 
+            })
+            .catch(console.error)
+    }
+
     function handleEdit(data) {
         const configObj = {
             method: 'PATCH',
@@ -39,10 +55,10 @@ function ContactCard({contact,setJobApps,jobApps,app}) {
                     <h3>{contact.email}</h3>
                     <h3>{contact.phone_number}</h3>
                     <p>description: {contact.description}</p>
-                    <button>Delete</button>
+                    <button onClick={handleDelete}>Delete</button>
                 </>
             }
-            <button onClick={handleClick}>{showEdit ? "Close" : "Edit"}</button>
+            <button onClick={handleShowClick}>{showEdit ? "Close" : "Edit"}</button>
         </div>
     )
 }

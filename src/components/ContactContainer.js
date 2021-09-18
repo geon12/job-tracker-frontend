@@ -2,6 +2,7 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import ContactCard from "./ContactCard"
+import ContactForm from "./ContactForm";
 
 function ContactContainer({jobApps, setJobApps}) {
     let { appId } = useParams();
@@ -12,10 +13,43 @@ function ContactContainer({jobApps, setJobApps}) {
     function populateCards() {
         return app.contacts.map((contact) => <ContactCard key={contact.id} contact={contact} setJobApps={setJobApps} jobApps={jobApps} app={app}/>)
     }
+
+    function handleClick() {
+        setShowForm(prevState => !prevState)
+    }
+
+    function updateContacts(newContact) {
+        app.contacts.push(newContact)
+        return jobApps.map((jobApp) => jobApp.id === app.id ? app : jobApp)
+    }
+
+    function addContact(data) {
+        const configObj = {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            credentials:'include',
+            body: JSON.stringify(data)
+        }
+        fetch(`${process.env.REACT_APP_API_URL}/contacts`,configObj)
+            .then((resp) => {
+                if (resp.ok) {
+                    resp.json().then(resp => {
+                        
+                        setJobApps(updateContacts(resp))
+                    })
+                }
+                else {
+                    resp.json().then((resp) => resp.errors)
+                }
+            })
+    }
     return (
         <div>
             <Link to="/job_applications"><button>Back to Applications</button></Link>
-            <button>{showForm ? "Close Form" : "Add Contact"}</button>
+            {showForm ? <ContactForm setShowForm={setShowForm} fetch={addContact} appId={appId}/> : null}
+            <button onClick={handleClick}>{showForm ? "Close Form" : "Add Contact"}</button>
              {app ? populateCards() : <div>Page is Loading</div>}
         </div>
     )
