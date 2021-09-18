@@ -1,6 +1,6 @@
 import {useState} from "react"
 
-function ContactForm({contact,setShowForm,fetch,appId}) {
+function ContactForm({contact,fetch,appId}) {
     const initialState = contact ? {
         name: contact.name ? contact.name : "",
         email: contact.email ? contact.email : "",
@@ -25,7 +25,7 @@ function ContactForm({contact,setShowForm,fetch,appId}) {
         event.preventDefault()
         
         fetch(formData)
-        setShowForm(prevState => !prevState)
+        
     }
     return (
         <form onSubmit={handleSubmit}> 

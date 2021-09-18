@@ -38,6 +38,7 @@ function ContactContainer({jobApps, setJobApps}) {
                     resp.json().then(resp => {
                         
                         setJobApps(updateContacts(resp))
+                        setShowForm(prevState => !prevState)
                     })
                 }
                 else {
@@ -48,7 +49,7 @@ function ContactContainer({jobApps, setJobApps}) {
     return (
         <div>
             <Link to="/job_applications"><button>Back to Applications</button></Link>
-            {showForm ? <ContactForm setShowForm={setShowForm} fetch={addContact} appId={appId}/> : null}
+            {showForm ? <ContactForm fetch={addContact} appId={appId}/> : null}
             <button onClick={handleClick}>{showForm ? "Close Form" : "Add Contact"}</button>
              {app ? populateCards() : <div>Page is Loading</div>}
         </div>

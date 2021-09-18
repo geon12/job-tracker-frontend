@@ -42,13 +42,14 @@ function ContactCard({contact,setJobApps,jobApps,app}) {
             .then(resp => resp.json())
             .then( (resp) => {
                 setJobApps(updateContacts(resp)) 
+                setShowEdit(prevState => !prevState)
             })
             .catch(console.error)
     }
     return (
         <div>
             { showEdit ?
-                <ContactForm contact={contact} setShowForm={setShowEdit} fetch={handleEdit}/> :
+                <ContactForm contact={contact} fetch={handleEdit}/> :
                 <>
                     <h1>{contact.name}</h1>
                     <h2>role: {contact.role}</h2>
