@@ -1,10 +1,10 @@
-
-
+import { useState } from "react"
 import JobAppCard from "./JobAppCard"
 
 function JobAppsContainer({jobApps}) {
-    //const [jobApps, setJobApps] = useState(null)
-    
+    const [showOrgForm,setShowOrgForm] = useState(false)
+    const [org, setOrg] = useState(null)
+
 
     return (
         <div>

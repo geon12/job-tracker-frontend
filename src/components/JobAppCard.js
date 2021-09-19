@@ -12,7 +12,6 @@ function JobAppCard({app}) {
             <h3>status-{app.status}</h3>
             <Link to={`/job_applications/${app.id}/tasks`}><button>Tasks</button></Link>
             <Link to={`/job_applications/${app.id}/contacts`}><button>Contacts</button></Link>
-            <button>Delete</button>
             <button>Edit</button>
             
         </div>
