@@ -24,7 +24,7 @@ function Profile({user,setUser}) {
                 </div>
                 
             }
-            <button className="text-center btn btn-secondary" onClick={handleClick}>{showEdit ? "Close Form" : "Edit Profile"}</button>
+            <button className="text-center btn btn-secondary my-3" onClick={handleClick}>{showEdit ? "Close Form" : "Edit Profile"}</button>
             
         </div>
     )

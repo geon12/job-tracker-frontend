@@ -44,36 +44,48 @@ function ProfileEditForm({user,setUser,setShowEdit}) {
 
     }
     return (
-        <form onSubmit={handleSubmit}>
-            <input 
-                type="text" 
-                name="name" 
-                placeholder="Name"
-                value={formData.name} 
-                onChange={handleChange}
-            />
-            <input 
-                type="text" 
-                name="location" 
-                placeholder="Location"
-                value={formData.location} 
-                onChange={handleChange}
-            />
-            <input 
-                type="text" 
-                name="email" 
-                placeholder="Email" 
-                value={formData.email} 
-                onChange={handleChange}
-            />
-            <input 
-                type="text" 
-                name="job_title" 
-                placeholder="Job Title" 
-                value={formData.job_title} 
-                onChange={handleChange}
-            />
-            <button type="submit">Save Changes</button>
+        <form onSubmit={handleSubmit} className="form-group text-center">
+            <div>
+                <input 
+                    type="text" 
+                    name="name" 
+                    placeholder="Name"
+                    value={formData.name} 
+                    onChange={handleChange}
+                    className="form-control-lg my-2"
+                />
+            </div>
+            <div>
+                <input 
+                    type="text" 
+                    name="location" 
+                    placeholder="Location"
+                    value={formData.location} 
+                    onChange={handleChange}
+                    className="form-control-lg my-2"
+                />
+            </div>
+            <div>
+                <input 
+                    type="text" 
+                    name="email" 
+                    placeholder="Email" 
+                    value={formData.email} 
+                    onChange={handleChange}
+                    className="form-control-lg my-2"
+                />
+            </div>
+            <div>
+                <input 
+                    type="text" 
+                    name="job_title" 
+                    placeholder="Job Title" 
+                    value={formData.job_title} 
+                    onChange={handleChange}
+                    className="form-control-lg my-2"
+                />
+            </div>
+            <button type="submit" className="btn btn-light btn-dark mt-2">Save Changes</button>
         </form>
     )
 }
