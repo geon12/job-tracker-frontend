@@ -31,9 +31,9 @@ function JobAppCard({app,jobApps,setJobApps}) {
     }
     return (
         <div className="card card-body border-dark text-center my-3 mx-5">
-            <h1>Role: {app.job.role}</h1>
+            <h1 className="card-header">Role: {app.job.role}</h1>
             <h2>Organization: {app.job.organization.name}</h2>
-            <h2>Notes: {app.notes}</h2>
+            <h2 className="card-text">Notes: {app.notes}</h2>
             <h2>How you applied: {app.application_process}</h2>
             <h3>Rejected?: {app.rejected ? "Yes" : "No"}</h3>
             <h3>Status: {app.status}</h3>

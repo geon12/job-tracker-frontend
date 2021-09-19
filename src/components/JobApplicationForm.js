@@ -34,13 +34,14 @@ function JobApplicationForm({fetch,jobApp,jobId}) {
 
     const statusCategories = ["Need to Submit Application","Waiting for Response","Interviewing","Need to Complete Additional Steps", "Waiting for Final Yes/No","Deciding on Offer","Other"]
     return (
-        <form onSubmit={handleSubmit}> 
+        <form onSubmit={handleSubmit} className="form-group"> 
             <input 
                 type="text" 
                 name="notes" 
                 placeholder="Any notes"
                 value={formData.notes} 
                 onChange={handleChange}
+                className="form-control-lg m-2"
             />
             <input 
                 type="text" 
@@ -48,14 +49,15 @@ function JobApplicationForm({fetch,jobApp,jobId}) {
                 placeholder="Process - Ex. online, referred,etc."
                 value={formData.application_process} 
                 onChange={handleChange}
+                className="form-control-lg m-2"
             />
-            <select name="status" onChange={handleChange} value={formData.status}>
+            <select className="form-select-lg m-2" name="status" onChange={handleChange} value={formData.status}>
                 {statusCategories.map((status) => <option key={uuidv4()} value={status}>{status}</option>)}
             </select>
-            <label  htmlFor="rejected">rejected</label>
-            <input type="checkbox" name="rejected" id="rejected" checked={formData.rejected} onChange={handleChange}/>
+            <label className="form-check-label m-2 h3" htmlFor="rejected">rejected?</label>
+            <input className="m-2" type="checkbox" name="rejected" id="rejected" checked={formData.rejected} onChange={handleChange}/>
             
-            <button type="submit">Save</button>
+            <button className="btn btn-secondary btn-sm" type="submit">Save</button>
         </form>
     )
 }
