@@ -39,7 +39,7 @@ function SignUpForm({setUser}) {
         });
     }
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form-group text-center">
              
             <input
                 type="text"
@@ -47,50 +47,64 @@ function SignUpForm({setUser}) {
                 value={formData.username}
                 onChange={handleChange}
                 placeholder="username"
+                className="form-control-lg my-2"
             />
+            <br />
             <input
                 type="text"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="email"
+                className="form-control-lg my-2"
             />
+            <br />
             <input
                 type="password"
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="password"
+                className="form-control-lg my-2"
             />
+            <br />
             <input
                 type="password"
                 name="password_confirmation"
                 value={formData.passwordConfirmation}
                 onChange={handleChange}
                 placeholder="confirm password"
+                className="form-control-lg my-2"
             />
+            <br />
             <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="name"
+                className="form-control-lg my-2"
             />
+            <br />
             <input
                 type="text"
                 name="location"
                 value={formData.location}
                 onChange={handleChange}
                 placeholder="location"
+                className="form-control-lg my-2"
             />
+            <br />
             <input
                 type="text"
                 name="job_title"
                 value={formData.job_title}
                 onChange={handleChange}
                 placeholder="job title"
+                className="form-control-lg my-2"
             />
-            <button type="submit">Submit</button>
+            <br />
+            <button type="submit" className="btn btn-secondary">Submit</button>
         </form>
     )
 }

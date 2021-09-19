@@ -17,7 +17,7 @@ function NavBar({user, setUser}) {
     
                     </> :
                         <Link className="nav-link nav-item" to="/login"> 
-                            <button>Login</button>
+                            <button className="btn btn-secondary">Login</button>
                         </Link>
                     }
         </nav>
