@@ -21,11 +21,6 @@ function Profile({user,setUser}) {
                 
             }
             <button onClick={handleClick}>{showEdit ? "Close Form" : "Edit Profile"}</button>
-            <div>
-                <div>Jobs</div>
-                <div>Active Tasks</div>
-                <div>Contacts</div>
-            </div>
             
         </div>
     )
