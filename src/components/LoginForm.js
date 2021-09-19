@@ -36,12 +36,12 @@ function LoginForm({setUser,getJobApps}) {
         setPassword(e.target.value)
     }
     return (
-        <form onSubmit={handleSubmit}>
-            <input type="text" name="username" value={username} placeholder="Username" onChange={handleUsernameChange}/>
+        <form onSubmit={handleSubmit} className="text-center form-group">
+            <input type="text" className="form-control-lg my-2" name="username" value={username} placeholder="Username" onChange={handleUsernameChange}/>
             <br/>
-            <input type="password" name="password" value={password} placeholder="Password" onChange={handlePasswordChange}/>
+            <input type="password" className="form-control-lg my-2 mb-3" name="password" value={password} placeholder="Password" onChange={handlePasswordChange}/>
             <br />
-            <button type="submit">Login</button>
+            <button type="submit" className="btn btn-secondary btn-lg">Login</button>
         </form>
     )
 }
