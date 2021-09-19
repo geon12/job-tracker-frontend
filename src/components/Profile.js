@@ -7,8 +7,8 @@ function Profile({user,setUser}) {
     function handleClick() {
         setShowEdit(prevState => !prevState)
     }
-    const phrases = ["Let's find a job!","You can do it!", "Every challenge is an opportunity", "It's not whether you get knocked down, it's whether you get back up.",
-    "Find a job you love!","Fail often so you can succeed sooner.","One step at a tIme.","The journey of a thousand miles begins with one step.",
+    const phrases = ["Let's find a job!","You can do it!", "Every challenge is an opportunity.", "It's not whether you get knocked down, it's whether you get back up.",
+    "Find a job you love!","Fail often so you can succeed sooner.","One step at a time.","The journey of a thousand miles begins with one step.",
     "Make things happen!"]
     return (
         

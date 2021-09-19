@@ -30,18 +30,21 @@ function JobAppCard({app,jobApps,setJobApps}) {
             .catch(console.error)
     }
     return (
-        <div>
-            <h1>job: {app.job.role}</h1>
-            <h2>org: {app.job.organization.name}</h2>
-            <h2>notes: {app.notes}</h2>
-            <h2>application method-{app.application_process}</h2>
-            <h3>rejected-{app.rejected ? "yes" : "no"}</h3>
-            <h3>status-{app.status}</h3>
-            <Link to={`/job_applications/${app.id}/tasks`}><button>Tasks</button></Link>
-            <Link to={`/job_applications/${app.id}/contacts`}><button>Contacts</button></Link>
+        <div className="card card-body border-dark text-center my-3 mx-5">
+            <h1>Role: {app.job.role}</h1>
+            <h2>Organization: {app.job.organization.name}</h2>
+            <h2>Notes: {app.notes}</h2>
+            <h2>How you applied: {app.application_process}</h2>
+            <h3>Rejected?: {app.rejected ? "Yes" : "No"}</h3>
+            <h3>Status: {app.status}</h3>
+            <div className="d-inline">
+                <Link to={`/job_applications/${app.id}/tasks`}><button className="btn btn-dark my-1 mx-5 px-4">Tasks</button></Link>
+                <Link to={`/job_applications/${app.id}/contacts`}><button className="btn btn-dark my-3">Contacts</button></Link>
+            </div>
             { showEdit ? <JobApplicationForm fetch={handleEdit} jobApp={app}/> : null}
-            <button onClick={handleClick}>{showEdit ? "Close" : "Edit"}</button>
-            
+            <div>
+                <button className="btn btn-secondary btn-lg my-2" onClick={handleClick}>{showEdit ? "Close" : "Edit"}</button>
+            </div>
         </div>
     )
 }
