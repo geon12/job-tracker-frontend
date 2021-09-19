@@ -11,6 +11,7 @@ function RadioOption({children,org,handleRadioChange,setChecked,checked}) {
                 value={org.id} 
                 onChange={handleRadioChange} 
                 onClick={() => setChecked(org.id)}
+                className="align-middle"
             />
             <label htmlFor={org.id}>{children}</label>
          </div>

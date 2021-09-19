@@ -31,7 +31,7 @@ function OrgContainter({filteredOrgs,setChosenOrg,handleSubmit}) {
     return (
         <form onSubmit={handleSubmit}>
             {populateOrgs(filteredOrgs)}
-            <button type="submit">Choose Organization</button>
+            <button className="btn btn-secondary btn-sm" type="submit">Choose Organization</button>
         </form>
     )
 }

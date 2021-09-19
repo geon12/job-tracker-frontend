@@ -1,7 +1,7 @@
 function OrgCard({org}) {
     return (
-        <div>
-            <h1>{org.name}</h1>
+        <div className="card card-body border-dark m-3">
+            <h1 className="card-header">{org.name}</h1>
             <h2>{org.industry}</h2>
             <p>{org.description}</p>
         </div>

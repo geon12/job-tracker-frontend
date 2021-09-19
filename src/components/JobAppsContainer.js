@@ -87,12 +87,12 @@ function JobAppsContainer({jobApps,setJobApps}) {
     }
 
     return (
-        <div>
+        <div className="text-center">
             {showOrgForm ? <SearchOrAddOrg setOrg={setOrg} setShowOrgForm={setShowOrgForm} setShowJobForm={setShowJobForm}/> :null}
             {showJobForm && org ? <JobForm organizationId={org.id} fetch={addJob}/> :null}
             {showJobApp && job ? <JobApplicationForm fetch={addJobApp} jobId={job.id}/> : null}
-            {addButton ? <button onClick={handleAddClick}>Add a Job Application</button> : 
-                <button onClick={handleCloseClick}>Close</button>}
+            {addButton ? <button className="btn btn-secondary my-3" onClick={handleAddClick}>Add a Job Application</button> : 
+                <button className="btn btn-secondary my-3" onClick={handleCloseClick}>Close</button>}
             {jobApps ? jobApps.map((app) => <JobAppCard key={uuidv4()} app={app} jobApps={jobApps} setJobApps={setJobApps}/>) : <div>Page is Loading</div>}
         </div>
     )

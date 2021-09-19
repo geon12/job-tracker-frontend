@@ -27,6 +27,7 @@ function JobForm({organizationId,fetch}) {
                 placeholder="Role"
                 value={formData.role} 
                 onChange={handleChange}
+                className="form-control-sm m-2"
             />
             <input 
                 type="text" 
@@ -34,6 +35,7 @@ function JobForm({organizationId,fetch}) {
                 placeholder="Listing Url"
                 value={formData.listing_url} 
                 onChange={handleChange}
+                className="form-control-sm m-2"
             />
             <input 
                 type="text" 
@@ -41,6 +43,7 @@ function JobForm({organizationId,fetch}) {
                 placeholder="Location"
                 value={formData.location} 
                 onChange={handleChange}
+                className="form-control-sm m-2"
             />
             <input 
                 type="text" 
@@ -48,8 +51,9 @@ function JobForm({organizationId,fetch}) {
                 placeholder="Job Description"
                 value={formData.description} 
                 onChange={handleChange}
+                className="form-control-sm m-2"
             />
-            <button type="submit">Add Job</button>
+            <button className="btn btn-secondary btn-sm m-2" type="submit">Add Job</button>
         </form>
     )
 }

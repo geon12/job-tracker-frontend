@@ -28,6 +28,7 @@ function OrganizationForm({addOrganization}) {
                 placeholder="Organization Name"
                 value={formData.name} 
                 onChange={handleChange}
+                className="form-control-sm mx-2"
             />
             <input 
                 type="text" 
@@ -35,6 +36,7 @@ function OrganizationForm({addOrganization}) {
                 placeholder="Industry"
                 value={formData.industry} 
                 onChange={handleChange}
+                className="form-control-sm mx-2"
             />
             <input 
                 type="text" 
@@ -42,8 +44,9 @@ function OrganizationForm({addOrganization}) {
                 placeholder="Description"
                 value={formData.description} 
                 onChange={handleChange}
+                className="form-control-sm mx-2"
             />
-            <button>Add Organization</button>
+            <button className="btn btn-secondary btn-sm">Add Organization</button>
         </form>
     )
 }

@@ -40,8 +40,8 @@ function SearchOrAddOrg({setOrg,setShowOrgForm,setShowJobForm}) {
             <OrgSearch setOrg={setOrg} setShowOrgForm={setShowOrgForm} setShowJobForm={setShowJobForm}/>:
             <OrganizationForm addOrganization={addOrganization}/>
             }
-            <button onClick={handleSearchClick}>Search for Organization</button>
-            <button onClick={handleAddClick}>Add an Organization</button>
+            <button className="btn btn-dark btn-sm mx-2 my-2" onClick={handleSearchClick}>Search for Organization</button>
+            <button className="btn btn-dark btn-sm mx-2 my-2" onClick={handleAddClick}>Add an Organization</button>
         </div>
     )
 }

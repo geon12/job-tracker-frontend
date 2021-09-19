@@ -19,7 +19,7 @@ function SearchBar({handleSearchSubmit}) {
     const id = `org-search`
     return (
         <form onSubmit={handleSubmit}>
-            <label htmlFor={id}>
+            <label htmlFor={id} className="h5">
                 <span>Search Organizations</span>
             </label>
             <input
@@ -28,9 +28,10 @@ function SearchBar({handleSearchSubmit}) {
                 placeholder={placeholder}
                 name="title"
                 value={search}
-                onChange={handleChange} 
+                onChange={handleChange}
+                className="form-control-sm m-2"
             />
-            <button type="submit">Search</button>
+            <button className="btn btn-secondary btn-sm" type="submit">Search</button>
         </form>
     )
 
