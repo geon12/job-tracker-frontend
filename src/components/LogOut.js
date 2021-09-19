@@ -16,7 +16,7 @@ function LogOut({setUser}) {
     }
     return (
         <div>
-            <button onClick={handleClick}>Log Out</button>
+            <button onClick={handleClick} className="btn btn-secondary">Log Out</button>
         </div>
     )
 }
