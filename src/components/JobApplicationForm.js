@@ -2,9 +2,10 @@ import {useState} from "react"
 import { v4 as uuidv4 } from 'uuid'
 
 function JobApplicationForm({fetch,jobApp,jobId}) {
+    
     const initialState = jobApp ? {
-        notes: jobApp.notes ? jobApp.notes : "",
-        application_process: jobApp.application_process ? jobApp.application_process : "",
+        notes: jobApp.notes ,
+        application_process: jobApp.application_process ,
         status: jobApp.status,
         rejected: jobApp.rejected,
     } : {notes: "" , application_process: "", status: "Other", rejected: false,job_id: jobId}
@@ -38,14 +39,14 @@ function JobApplicationForm({fetch,jobApp,jobId}) {
                 type="text" 
                 name="notes" 
                 placeholder="Any notes"
-                value={formData.name} 
+                value={formData.notes} 
                 onChange={handleChange}
             />
             <input 
                 type="text" 
                 name="application_process" 
                 placeholder="Process - Ex. online, referred,etc."
-                value={formData.role} 
+                value={formData.application_process} 
                 onChange={handleChange}
             />
             <select name="status" onChange={handleChange} value={formData.status}>

@@ -3,6 +3,7 @@ import JobAppCard from "./JobAppCard"
 import JobApplicationForm from "./JobApplicationForm"
 import JobForm from "./JobForm"
 import SearchOrAddOrg from "./SearchOrAddOrg"
+import { v4 as uuidv4 } from 'uuid';
 
 function JobAppsContainer({jobApps,setJobApps}) {
     const [addButton,setAddButton] = useState(true)
@@ -92,7 +93,7 @@ function JobAppsContainer({jobApps,setJobApps}) {
             {showJobApp && job ? <JobApplicationForm fetch={addJobApp} jobId={job.id}/> : null}
             {addButton ? <button onClick={handleAddClick}>Add a Job Application</button> : 
                 <button onClick={handleCloseClick}>Close</button>}
-            {jobApps ? jobApps.map((app) => <JobAppCard key={app.id} app={app} />) : <div>Page is Loading</div>}
+            {jobApps ? jobApps.map((app) => <JobAppCard key={uuidv4()} app={app} jobApps={jobApps} setJobApps={setJobApps}/>) : <div>Page is Loading</div>}
         </div>
     )
 }
