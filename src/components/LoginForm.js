@@ -1,4 +1,4 @@
-import {useState} from "react"
+import { useState } from "react"
 
 function LoginForm({setUser}) {
     const [username, setUsername] = useState("");
@@ -19,8 +19,7 @@ function LoginForm({setUser}) {
                 if (resp.ok) {
                     resp.json().then(resp => {
                         setUser(resp)
-                        setPassword("")
-                        setUsername("")
+                        
                     })
                 }
                 else {

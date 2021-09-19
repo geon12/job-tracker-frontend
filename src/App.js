@@ -11,7 +11,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  
+  Redirect
 } from "react-router-dom";
 import NavBar from "./components/NavBar";
 
@@ -26,12 +26,12 @@ function App() {
           resp.json().then((resp)=>{
             setUser(resp)
             
-          })
+          }).then(getJobApps())
         }
       })
   },[])
 
-  useEffect( () => {
+  function getJobApps() {
     fetch(`${process.env.REACT_APP_API_URL}/job_applications`,{credentials:'include'})
     .then((resp) => {
         if (resp.ok) {
@@ -41,7 +41,8 @@ function App() {
             })
         }
     })
-},[])
+  }
+  
 
   return (
     <Router>
@@ -49,13 +50,13 @@ function App() {
       <Switch>
         
           <Route exact path="/">
-            <Home />
+          {user ? <Redirect to="/profile" /> : <Home />}
           </Route>
           <Route exact path="/profile">
             {user ? <Profile user={user} setUser={setUser}/> : <div>Profile is Loading</div>}
           </Route>
           <Route exact path="/login">
-            <Login setUser={setUser}/>
+            {user ? <Redirect to="/profile" /> : <Login setUser={setUser}/>}
           </Route>
           <Route exact path="/signup">
             <SignUp setUser={setUser}/>
