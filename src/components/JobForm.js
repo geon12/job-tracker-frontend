@@ -1,3 +1,4 @@
+import {useState} from "react"
 function JobForm({organizationId,fetch}) {
     const initialState = {role: "" , listing_url: "", location: "", description: "", organization_id: organizationId}
     const [formData, setFormData] = useState(initialState)
@@ -48,6 +49,7 @@ function JobForm({organizationId,fetch}) {
                 value={formData.description} 
                 onChange={handleChange}
             />
+            <button type="submit">Add Job</button>
         </form>
     )
 }

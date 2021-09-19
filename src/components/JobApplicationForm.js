@@ -1,12 +1,13 @@
 import {useState} from "react"
+import { v4 as uuidv4 } from 'uuid'
 
-function JobApplicationForm({fetch,jobApp,jobId,userId}) {
+function JobApplicationForm({fetch,jobApp,jobId}) {
     const initialState = jobApp ? {
         notes: jobApp.notes ? jobApp.notes : "",
         application_process: jobApp.application_process ? jobApp.application_process : "",
         status: jobApp.status,
         rejected: jobApp.rejected,
-    } : {notes: "" , application_process: "", status: "Other", rejected: false,job_id: jobId, user_id: userId}
+    } : {notes: "" , application_process: "", status: "Other", rejected: false,job_id: jobId}
 
     const [formData, setFormData] = useState(initialState)
 
@@ -48,9 +49,11 @@ function JobApplicationForm({fetch,jobApp,jobId,userId}) {
                 onChange={handleChange}
             />
             <select name="status" onChange={handleChange} value={formData.status}>
-                {statusCategories.map((status) => <option value={status}>{status}</option>)}
+                {statusCategories.map((status) => <option key={uuidv4()} value={status}>{status}</option>)}
             </select>
-            <input type="checkbox" name="rejected" checked={formData.rejected} onChange={handleChange}/>
+            <label  htmlFor="rejected">rejected</label>
+            <input type="checkbox" name="rejected" id="rejected" checked={formData.rejected} onChange={handleChange}/>
+            
             <button type="submit">Save</button>
         </form>
     )

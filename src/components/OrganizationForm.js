@@ -1,3 +1,4 @@
+import { useState } from "react"
 function OrganizationForm({addOrganization}) {
     const initialState = {name: "" , description: "", industry: ""}
     const [formData, setFormData] = useState(initialState)
@@ -20,6 +21,7 @@ function OrganizationForm({addOrganization}) {
     }
     return (
         <form onSubmit={handleSubmit}>
+            <h2>What organization are you applying to ?</h2>
             <input 
                 type="text" 
                 name="name" 
@@ -37,10 +39,11 @@ function OrganizationForm({addOrganization}) {
             <input 
                 type="text" 
                 name="description" 
-                placeholder="Job Description"
+                placeholder="Description"
                 value={formData.description} 
                 onChange={handleChange}
             />
+            <button>Add Organization</button>
         </form>
     )
 }
