@@ -1,9 +1,9 @@
 import LoginForm from "./LoginForm"
 
-function Login({setUser}) {
+function Login({setUser,getJobApps}) {
     return (
         <div>
-            <LoginForm setUser={setUser}/>
+            <LoginForm setUser={setUser} getJobApps={getJobApps}/>
         </div>
     )
 }

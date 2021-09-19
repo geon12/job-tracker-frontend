@@ -56,7 +56,7 @@ function App() {
             {user ? <Profile user={user} setUser={setUser}/> : <div>Profile is Loading</div>}
           </Route>
           <Route exact path="/login">
-            {user ? <Redirect to="/profile" /> : <Login setUser={setUser}/>}
+            {user ? <Redirect to="/profile" /> : <Login setUser={setUser} getJobApps={getJobApps}/>}
           </Route>
           <Route exact path="/signup">
           {user ? <Redirect to="/profile" /> : <SignUp setUser={setUser}/>}

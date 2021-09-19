@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function LoginForm({setUser}) {
+function LoginForm({setUser,getJobApps}) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -20,7 +20,7 @@ function LoginForm({setUser}) {
                     resp.json().then(resp => {
                         setUser(resp)
                         
-                    })
+                    }).then(getJobApps())
                 }
                 else {
                     resp.json().then((resp) => resp.errors)
