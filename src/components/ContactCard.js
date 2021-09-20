@@ -47,19 +47,22 @@ function ContactCard({contact,setJobApps,jobApps,app}) {
             .catch(console.error)
     }
     return (
-        <div>
+        <div className="card card-body border-dark m-3 text-center mx-5">
             { showEdit ?
                 <ContactForm contact={contact} fetch={handleEdit}/> :
                 <>
                     <h1>{contact.name}</h1>
-                    <h2>role: {contact.role}</h2>
-                    <h3>{contact.email}</h3>
-                    <h3>{contact.phone_number}</h3>
-                    <p>description: {contact.description}</p>
-                    <button onClick={handleDelete}>Delete</button>
+                    <h2>Role: {contact.role}</h2>
+                    <h3>Email: {contact.email}</h3>
+                    <h3>Phone #: {contact.phone_number}</h3>
+                    <p>Description: {contact.description}</p>
+                    
                 </>
             }
-            <button onClick={handleShowClick}>{showEdit ? "Close" : "Edit"}</button>
+            <div>
+                <button className="btn btn-secondary btn-sm m-2" onClick={handleDelete}>Delete</button>
+                <button className="btn btn-secondary btn-sm m-2" onClick={handleShowClick}>{showEdit ? "Close" : "Edit"}</button>
+            </div>
         </div>
     )
 }

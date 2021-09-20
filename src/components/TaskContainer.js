@@ -48,9 +48,11 @@ function TaskContainer({jobApps,setJobApps}) {
     }
     return (
         <div>
-            <Link to="/job_applications"><button>Back to Applications</button></Link>
+            <Link to="/job_applications"><button className="btn btn-dark m-2">⇦ Back to Applications</button></Link>
             {showForm ? <TaskForm fetch={addTask} appId={appId}/> : null}
-            <button onClick={handleClick}>{showForm ? "Close Form" : "Add Task"}</button>
+            <div className="text-center">
+                <button className="btn btn-secondary btn-lg m-2" onClick={handleClick}>{showForm ? "Close Form" : "Add Task"}</button>
+            </div>
             {app ? populateCards() : <div>Page is Loading</div>}
         </div>
     )

@@ -45,19 +45,20 @@ function TaskCard({task,setJobApps,jobApps,app}) {
             .catch(console.error)
     }
     return (
-        <div>   { 
+        <div className="card card-body border-dark m-3 text-center mx-5">   { 
                     showEdit ?
                         <TaskForm fetch={handleEdit} task={task}/> :
-                    <>
+                    <div>
                         <h1>{task.name}</h1>
-                        <h2>{task.category}</h2>
-                        <h2>{`${task.date.slice(5,7)}-${task.date.slice(8,10)}-${task.date.slice(0,4)}`}</h2>
-                        <h2>completed-{task.completed ? "yes" : "no"}</h2>
-                    </>
-                }   
-                <button onClick={handleDelete}>Delete</button>
-                <button onClick={handleShowClick}>{showEdit ? "Close" : "Edit"}</button>
-                
+                        <h2>Category: {task.category}</h2>
+                        <h2>Date: {`${task.date.slice(5,7)}-${task.date.slice(8,10)}-${task.date.slice(0,4)}`}</h2>
+                        <h2>Completed? - {task.completed ? "Yes" : "No"}</h2>
+                    </div>
+                }
+                <div>
+                    <button className="btn btn-secondary btn-sm m-2" onClick={handleDelete}>Delete</button>
+                    <button className="btn btn-secondary btn-sm m-2" onClick={handleShowClick}>{showEdit ? "Close" : "Edit"}</button>
+                </div>
         </div>
     )
 }

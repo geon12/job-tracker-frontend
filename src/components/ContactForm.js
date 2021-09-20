@@ -28,43 +28,58 @@ function ContactForm({contact,fetch,appId}) {
         
     }
     return (
-        <form onSubmit={handleSubmit}> 
-            <input 
-                type="text" 
-                name="name" 
-                placeholder="Name"
-                value={formData.name} 
-                onChange={handleChange}
-            />
-            <input 
-                type="text" 
-                name="role" 
-                placeholder="Role"
-                value={formData.role} 
-                onChange={handleChange}
-            />
-            <input 
-                type="text" 
-                name="email" 
-                placeholder="Email" 
-                value={formData.email} 
-                onChange={handleChange}
-            />
-            <input 
-                type="text" 
-                name="phone_number" 
-                placeholder="Phone Number" 
-                value={formData.phone_number} 
-                onChange={handleChange}
-            />
-            <input 
-                type="text" 
-                name="description" 
-                placeholder="Description" 
-                value={formData.description} 
-                onChange={handleChange}
-            />
-            <button type="submit">Save</button>
+        <form onSubmit={handleSubmit} className="text-center"> 
+            <div>
+                <input 
+                    type="text" 
+                    name="name" 
+                    placeholder="Name"
+                    value={formData.name} 
+                    onChange={handleChange}
+                    className="form-control-lg m-2"
+                />
+            </div>
+            <div>
+                <input 
+                    type="text" 
+                    name="role" 
+                    placeholder="Role"
+                    value={formData.role} 
+                    onChange={handleChange}
+                    className="form-control-lg m-2"
+                />
+            </div>
+            <div>
+                <input 
+                    type="text" 
+                    name="email" 
+                    placeholder="Email" 
+                    value={formData.email} 
+                    onChange={handleChange}
+                    className="form-control-lg m-2"
+                />
+            </div>
+            <div>
+                <input 
+                    type="text" 
+                    name="phone_number" 
+                    placeholder="Phone Number" 
+                    value={formData.phone_number} 
+                    onChange={handleChange}
+                    className="form-control-lg m-2"
+                />
+            </div>
+            <div>
+                <input 
+                    type="text" 
+                    name="description" 
+                    placeholder="Description" 
+                    value={formData.description} 
+                    onChange={handleChange}
+                    className="form-control-lg m-2"
+                />
+            </div>
+            <button className="btn btn-dark m-2" type="submit">Save</button>
         </form>
     )
 }
