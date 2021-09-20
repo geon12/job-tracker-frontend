@@ -70,7 +70,9 @@ function App() {
           <Route exact path="/job_applications/:appId/contacts">
             {user && jobApps ? <ContactContainer jobApps={jobApps} setJobApps={setJobApps}/> : <div>Contact is Loading</div>}
           </Route>
-        
+          <Route path="*">
+              <div className="display-4 text-center m-4">404 Page Not Found</div>
+          </Route>
       </Switch>
     </Router>
   );
