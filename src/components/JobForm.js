@@ -21,6 +21,7 @@ function JobForm({organizationId,fetch}) {
     }
     return (
         <form onSubmit={handleSubmit}>
+            <h2>What Job are you applying for?</h2>
             <input 
                 type="text" 
                 name="role" 
